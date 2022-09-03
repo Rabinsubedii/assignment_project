@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,26 @@ use App\Http\Controllers\Controller;
 Route::get('/',function(){
     return redirect('login');
 });
+
+ // category
+
+   Route::get('category', function () { return view('frontend.category.index');})->name('frontend.category.index');
+   Route::get('add-category',[CategoryController::class,'create']);
+   Route::post('add-category',[CategoryController::class,'store']);
+   Route::get('edit-category/{id}',[CategoryController::class,'edit']);
+   Route::put('updatecategory/{id}',[CategoryController::class,'update']);
+   Route::get('delete-category/{id}',[CategoryController::class,'destroy']);
+
+    // Product
+   Route::get('products',[ProductController::class,'index']);
+   Route::get('add-product',[ProductController::class,'create']);
+   Route::post('add-product',[ProductController::class,'store']);
+   Route::get('edit-product/{id}',[ProductController::class,'edit']);
+   Route::put('updateproduct/{id}',[ProductController::class,'update']);
+   Route::get('delete-product/{id}',[ProductController::class,'destroy']);
+
+
+   
 Route::middleware(['auth'])->group(function(){
     Route::get('/profileedit',function(){ return view('profile.edit');})->name('profile.edit');
     Route::get('/home', function () { return view('dashboard');})->name('home');
@@ -28,6 +50,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/noti',function(){return view('pages.notifications');})->name('notifications');
     Route::get('/language',function(){return view('pages.language');})->name('language');
     Route::get('/userindex', [UserController::class,"index"])->name('user.index');
+    Route::get('/category', [CategoryController::class,"index"])->name('frontend.category.index');
+
+
     Route::resource('/roles',RoleController::class)->names([
         'index'=>'role.index',
        'create'=>'role.create',
@@ -53,10 +78,3 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/assignrole/{id}',[UserController::class,'assignRoleView'])->name('roleassign');
     Route::post('assignrole/{id}',[UserController::class,'assignRoleStore'])->name('roleassignstore');
 });
-
-
-
-
-
-
-

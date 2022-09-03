@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="/home" class="simple-text logo-normal">
-      {{ __('Brikshya') }}
+      {{ __('Cafe Culture') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -17,7 +17,22 @@
             <p>{{ __('Dashboard') }}</p>
         </a>
       </li>
-      <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+
+      <li class="nav-item{{ $activePage == 'frontend.category.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ route('frontend.category.index') }}">
+      <i class="material-icons">category</i>
+      <span class="sidebar-normal">{{ __('Category') }} </span>
+      </a>
+      </li>
+
+        <li class="nav-item{{ $activePage == 'frontend.product.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('products') }}">
+      <i class="material-icons">iron</i>
+      <span class="sidebar-normal">{{ __('Product') }} </span>
+      </a>
+      </li>
+
+{{-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
           <p>{{ __('Users') }}
@@ -116,10 +131,10 @@
       </li>
       <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('language') }}">
-          <i class="material-icons">language</i>
+          <i class="material-icons">delete</i>
           <p>{{ __('RTL Support') }}</p>
         </a>
-      </li>
+      </li>  --}}
       
     </ul>
   </div>
