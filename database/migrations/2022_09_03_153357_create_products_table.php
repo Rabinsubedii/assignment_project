@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('shortdescription');
             $table->text('description');
+            $table->text('price');
+            $table->integer('status')->length(1);
             $table->text('image');
             $table->foreignIdFor(Category::class);
             $table->timestamps();

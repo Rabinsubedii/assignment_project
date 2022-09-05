@@ -10,7 +10,9 @@
             <tr>
                 <th>S.N</th>
                 <th>Title</th>
-                <th>Description</th>
+                <th>Description</th> 
+                <th>Image</th> 
+                <th>Status</th> 
                 <th>Action</th>
             </tr>
         </thead>
@@ -20,6 +22,10 @@
                 <td>&nbsp;</td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->description}}</td>
+                <td>
+                    <img src="{{asset('uploads/category/'.$item->image)}}" height="70px" alt="Category Image">
+                </td>
+                  <td>{{$item->status =='0'?'Enable':'Disable'}}</td>
                 <td>
                     <a href="{{url('edit-category/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
                     <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>

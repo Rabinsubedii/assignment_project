@@ -9,7 +9,7 @@
      @if(session ('status'))
     <h4 class="alert alert-success">{{session ('status')}}</h4>
     @endif
-         <form action="{{ url('updateproduct/'.$product->id) }}" method="POST"  class="mt-5">
+         <form action="{{ url('updateproduct/'.$product->id) }}" method="POST"  class="mt-5" enctype="multipart/form-data">
              @csrf
                @method('PUT')
             <div class="form-group">
@@ -39,6 +39,17 @@
                 @endforeach
             </select>
             </div>
+
+            <div class="form-group mt-3 ">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" value="{{$product->price}}" name="price" required >
+            </div>
+
+             <label for="status">Status</label>
+            <select name="status" class="form-control" id="">
+                <option value="0" name="status">Active</option>
+                 <option value="1" name="status">Deactive</option>
+            </select>
 
            <label for="">Product Image</label>
         <input type="file" name="image" class="form-control">

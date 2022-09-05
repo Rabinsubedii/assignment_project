@@ -25,117 +25,84 @@
       </a>
       </li>
 
+      
+
         <li class="nav-item{{ $activePage == 'frontend.product.index' ? ' active' : '' }}">
       <a class="nav-link" href="{{ url('products') }}">
-      <i class="material-icons">iron</i>
-      <span class="sidebar-normal">{{ __('Product') }} </span>
+      <i class="material-icons">menu_book</i>
+      <span class="sidebar-normal">{{ __('Menu') }} </span>
       </a>
       </li>
 
-{{-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Users') }}
+      <li class="nav-item{{ $activePage == 'frontend.contact.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('contact') }}">
+      <i class="material-icons">phone</i>
+      <span class="sidebar-normal">{{ __('Contact') }} </span>
+      </a>
+      </li>
+
+      {{-- <li class="nav-item{{ $activePage == 'frontend.setting.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('setting') }}">
+      <i class="material-icons">settings</i>
+      <span class="sidebar-normal">{{ __('Setting') }} </span>
+      </a>
+      </li> --}}
+
+       <li class="nav-item{{ $activePage == 'frontend.setting.index' ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#laravelExample">
+            <i class="material-icons">settings</i>
+          <p>{{ __('Settings') }}
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse" id="laravelExample">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('profile.edit') }}">
+            <li class="nav-item">
+
+              <a class="nav-link"href="{{ url('add-setting') }}">
                 <span class="sidebar-mini"> UP </span>
-                <span class="sidebar-normal">{{ __('User profile') }} </span>
+                <span class="sidebar-normal">{{ __('Add Logo') }} </span>
               </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
+
+              <a class="nav-link"href="{{ url('setting') }}">
+                  <i class="material-icons">settings</i>
+                <span class="sidebar-normal">{{ __('All setting') }} </span>
               </a>
+
             </li>
+
           </ul>
         </div>
       </li>
-      <li class="nav-item {{ ($activePage == 'role' || $activePage == 'role-managment') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#Role" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Role') }}
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse show" id="Role">
-          <ul class="nav">
-            <li class="nav-item{{ $activePage == 'role' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('role.index') }}">
-                <span class="sidebar-mini"> PC </span>
-                <span class="sidebar-normal">{{ __('Role Index') }} </span>
-              </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'role-assignment' ? ' active' : '' }}">
-              <a class="nav-link" href="/rolesassign">
-                <span class="sidebar-mini"> RA</span>
-                <span class="sidebar-normal"> {{ __('Assignment to permission') }} </span>
-              </a>
-            </li>
-          </ul>
-        </div>
+
+      <li class="nav-item{{ $activePage == 'frontend.testimonial.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('testimonial') }}">
+      <i class="material-icons">autorenew</i>
+      <span class="sidebar-normal">{{ __('Testimonial') }} </span>
+      </a>
       </li>
-      <li class="nav-item {{ ($activePage == 'permission' || $activePage == 'permission-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#permission" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Permission') }}
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse show" id="permission">
-          <ul class="nav">
-            <li class="nav-item{{ $activePage == 'permission_index' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('permission.index') }}">
-                <span class="sidebar-mini"> PC </span>
-                <span class="sidebar-normal">{{ __('Permission Index') }} </span>
-              </a>
-            </li>
-            
-          </ul>
-        </div>
+
+      <li class="nav-item{{ $activePage == 'frontend.slider.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('slider') }}">
+      <i class="material-icons">arrow_circle_right</i>
+      <span class="sidebar-normal">{{ __('Slider') }} </span>
+      </a>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
-          <i class="material-icons">content_paste</i>
-            <p>{{ __('Table List') }}</p>
-        </a>
+
+      <li class="nav-item{{ $activePage == 'frontend.todayspecial.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('todayspecial') }}">
+      <i class="material-icons">lunch_dining</i>
+      <span class="sidebar-normal">{{ __('Today Special') }} </span>
+      </a>
       </li>
-      <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('typography') }}">
-          <i class="material-icons">library_books</i>
-            <p>{{ __('Typography') }}</p>
-        </a>
+
+       <li class="nav-item{{ $activePage == 'frontend.order.index' ? ' active' : '' }}">
+      <a class="nav-link" href="{{ url('orderpage') }}">
+      <i class="material-icons">storefront</i>
+      <span class="sidebar-normal">{{ __('Order') }} </span>
+      </a>
       </li>
-      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('icons') }}">
-          <i class="material-icons">bubble_chart</i>
-          <p>{{ __('Icons') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('map') }}">
-          <i class="material-icons">location_ons</i>
-            <p>{{ __('Maps') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('notifications') }}">
-          <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('language') }}">
-          <i class="material-icons">delete</i>
-          <p>{{ __('RTL Support') }}</p>
-        </a>
-      </li>  --}}
-      
+
     </ul>
   </div>
 </div>
