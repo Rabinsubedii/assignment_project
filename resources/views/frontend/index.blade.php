@@ -21,45 +21,51 @@
     </head>
 
     <body>
-
-
+        <!-- Top navbar -->
         @include('frontend.topnav')
         @include('frontend.navbar')
 
-        <!-- slider -->
+
       
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                                @php
-                                $counter = 0;
-                                @endphp
-                                @foreach ($slider as $item )
-                            <div class="carousel-item {{$counter==0? 'active':''}} ">
-                                <img class="d-block w-100 slider-image" id="first-slider" src="{{asset('uploads/slider/'.$item->image)}}" 
-                                    alt="First slide">
-                            </div>
-                            @php
-                            $counter++;
-                            @endphp
-                            @endforeach
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                            data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                            data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-        <!-- special item section -->
+
+        <!-- slider -->
+        <div id="carouselId" class="carousel slide" data-ride="carousel">
+            
+            <ol class="carousel-indicators">
+                     @php
+                $counter = 0;
+                @endphp
+                 @foreach ($slider as $item )
+                <li data-target="{{$item->id}}" data-slide-to="0" class="active"></li>
+                 @php
+                $counter++;
+                @endphp
+                @endforeach
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                  @php
+                $counter = 0;
+                @endphp
+                @foreach ($slider as $item )
+                <div class="carousel-item {{$counter==0? 'active':''}} ">
+                    <img src="{{asset('uploads/slider/'.$item->image)}}" class="slider-image" alt="First slide">
+                </div>
+                 @php
+                $counter++;
+                @endphp
+                @endforeach
+            </div>
+            <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        {{-- Today special item --}}
         <section class="special-item-section">
             <div class="container-fluid">
                 <div class="section-header">
@@ -100,7 +106,7 @@
                                         </a>
                                     </div>
 
-                                    <!-- Carousel Navigatiom -->
+                                                                     <!-- Carousel Navigatiom -->
                                     <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner">
                                              @php

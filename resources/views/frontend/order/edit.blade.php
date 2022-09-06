@@ -1,4 +1,4 @@
-@extends('layouts.app1', ['activePage' => 'frontend.category.index', 'titlePage' => __('Dashboard')])
+@extends('layouts.app1', ['activePage' => 'frontend.order.edit', 'titlePage' => __('Dashboard')])
 
     @section('content')
     <div class="container content">

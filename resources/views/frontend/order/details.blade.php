@@ -1,3 +1,3 @@
-  @foreach ($order as $item)
-       <p>{{$item->name}}</p>
-            @endforeach
+  @if(session ('email'))
+    <h4 class="alert alert-success">{{session ('email')}}</h4>
+    @endif

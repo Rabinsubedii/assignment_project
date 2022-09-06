@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Order;
+use App\Models\Setting;
 use App\Models\Product;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -11,19 +12,21 @@ class OrderController extends Controller
     //
     public function index()
     {
+         $setting = Setting::all();
         $order = Order::all();
-        return view('frontend.order.index',compact('order'));
+        return view('frontend.order.index',compact(['order','setting']));
     }
 
     public function frontorder()
     {   
+         $setting = Setting::all();
          $order = Order::all();
          $product = Product::all();
-         return view('frontend.order.order',compact('order','product'));
+         return view('frontend.order.order',compact('order','product','setting'));
     }
     public function ordered(Request $request){
         $order = Order::all();
-       foreach($request->quantity as $key=>$quantity){
+        foreach($request->quantity as $key=>$quantity){
         $data = new Order();
         $data->quantity = $quantity;
         $data ->name = $request->input('name');
@@ -36,7 +39,7 @@ class OrderController extends Controller
         $data->product_id =$request->product_id[$key];
         $data->save();
        }
-        return view('frontend.order.details',compact('order'));
+         return redirect()->back()->with('status', 'Order Successfully');
     }
 
     public function details()
@@ -79,6 +82,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $order->delete();
+      
         return redirect()->back()->with('status', 'Order Delete Successfully');
     }
 

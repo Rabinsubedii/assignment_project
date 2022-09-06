@@ -12,9 +12,9 @@ class ProductController extends Controller
     //
     public function index()
     {
-        $product = Product::all();
-        $category = Category::all();
-        return view('frontend.product.index',compact('product','category'));
+       $setting = Setting::all();
+       $product = Product::all();
+       return view('frontend.product.index',compact('product','setting'));
     }
 
     public function create()
@@ -49,7 +49,14 @@ class ProductController extends Controller
         $setting = Setting::all();
         $category = Category::all();
         $menu= Product::all();
-        return view('frontend.menu.index',compact('menu','setting','category'));
+
+        $categoryWithProducts = Category::with('products')->get();
+
+        return view('frontend.menu.index',with([
+            'data' => $categoryWithProducts,
+            'setting' => $setting,
+            'menu' => $menu,
+        ]));
     }
 
     // public function menus($id){
@@ -102,6 +109,7 @@ class ProductController extends Controller
         {
           File::delete($destination);
         }
+        $product->order()->delete();
         $product->delete();
           return redirect()->back()->with('status', 'Services Delete Successfully');
     }

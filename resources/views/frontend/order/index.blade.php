@@ -24,10 +24,9 @@
                 <td>{{$item->phone}}</td>
                 <td>{{$item->Address}}</td>
                 <td>{{$item->email}}</td>
-                <td>{{$item->product_id}}</td>
+                <td>{{$item->product->name}}</td>
                 <td>
                     <a href="{{url('edit-order/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('confirm-order/'.$item->id)}}" class="btn btn-primary btn-sm">Cofirm Order</a>
                     <a href="{{url('delete-order/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>

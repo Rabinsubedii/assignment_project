@@ -21,36 +21,12 @@
 
 <body id="order-body">
     <!-- Top navbar -->
-    <nav class="navbar navbar-expand-lg top-nav">
-        <div id="my-nav" class="container-fluid">
-            <a id="primary-contact" href="tel:984-4910404">+977 984-4910404</a>
-            <a id="primary-contact" href="mailto:cafeclubnepaliculture@gmail.com"> cafeclubnepaliculture@gmail.com</a>
-        </div>
-    </nav>
+   @include('frontend.topnav')
+   
 
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light main-navbar">
-        <div class="container-fluid">
-            <img src="./img/logo.jpg" class="logo-img" alt="">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu.html">Menu</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+       @include('frontend.navbar')
     <div class="whole-order-page">
      @if(session ('status'))
     <p class="alert alert-success">{{session ('status')}}</p>
@@ -93,10 +69,6 @@
                             </tr>
                         </tbody>
 
-                       
-
-  
-                        
                     {{-- product quantity --}}
                     <thead class="pro">
                     <tr>
@@ -110,11 +82,11 @@
                     <td>
                     <select name="product_id[]" class="form-control">
                         @foreach ( $product as $category )
-                        <option value="{{$category->id}}">{{$category->name}} </option>
+                        <option value="{{$category->id}}">{{$category->name}} (RS. {{$category->price}})  </option>
                         @endforeach
                     </select>
                     </td>
-                    <td><input type="number" name="quantity[]" class="form-control" required></td>
+                    <td><input type="number"  name="quantity[]" class="form-control" min="1" required></td>
                     {{-- <td><a href="javascript:;" class="btn btn-danger deleteRow">-</a></td> --}}
                     </tr>
                     </tbody>
@@ -140,42 +112,7 @@
 
 
     <!-- footer -->
-    <div class="footer-dark">
-        <footer>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-5 item text">
-                        <h3>Cafe Culture</h3>
-                        <p>cafe culture located at the center of mahendrapool (infront of annapurna supermarket) we are imainly focused on the hygiene and the taste quality.</p>
-                    </div>
-                    <div class="col-md-1 item text"></div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Useful Links</h3>
-                        <ul>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><a href="./menu.html">Menu</a></li>
-                            <li><a href="#whatcustomersay">What our customer says?</a></li>
-                            <li><a href="#about">About</a></li>
-
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Quick Links</h3>
-                        <div class="col item social">
-                            <ul class="list-unstyled list-inline social text-center">
-                                <li class="list-inline-item"><a href="https://www.facebook.com/cafeclubnepaliculture"><i class="fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="https://www.instagram.com/cafeclubnepaliculture/?hl=en"><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href=""><i class="fa fa-google-plus"></i></a></li>
-                                <li class="list-inline-item"><a href="mailto:cafeclubnepaliculture@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <p class="copyright">Cafe Culture © 2022</p>
-            </div>
-        </footer>
-    </div>
+    @include('frontend.footer')
 
 
     <script>
@@ -184,7 +121,7 @@
         '<td>' +
         '<select name="product_id[]" class="form-control">' +
         ' @foreach ( $product as $category )' +
-        '<option value="{{$category->id}}">{{ $category-> name}}</option>' +
+        ' <option value="{{$category->id}}">{{$category->name}} (RS. {{$category->price}})  </option>' +
         ' @endforeach' +
         '</select>' +
         '</td>' +

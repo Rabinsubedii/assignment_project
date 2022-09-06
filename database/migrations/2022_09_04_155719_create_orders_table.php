@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->text('admin_remarks')->nullable(); 
             $table->foreignIdFor(Product::class)->nullable(); ;
             $table->string('quantity')->nullable(); ;
+             $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

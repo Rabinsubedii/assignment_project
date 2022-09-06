@@ -24,7 +24,7 @@ class ContactController extends Controller
         $data ->message = $request->input('message');
         $data->save();
         Mail::to('rabbinsubedi@gmail.com')->send (new ContactMail($data));
-        return redirect()->back()->with('status', 'Done');
+        return redirect()->back()->with('status', 'Send Message');
     }
 
       public function edit ($id)

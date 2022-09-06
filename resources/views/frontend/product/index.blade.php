@@ -28,13 +28,16 @@
                  <td>
                     <img src="{{asset('uploads/product/'.$item->image)}}" height="70px" alt="Product Image">
                 </td>
-                <td>{{$item->category_id}}</td>
+              <td>{{$item->category->name}}</td>
+
+
                 <td>{{$item->status =='0'?'Enable':'Disable'}}</td>
          
                 
                 <td>
                     <a href="{{url('edit-product/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-product/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="{{url('delete-product/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this product ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$item->id}})">Delete<i class="fa fa-times  text-danger"></i></a>
+
                 </td>
             </tr>
             @endforeach

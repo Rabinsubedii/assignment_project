@@ -45,7 +45,7 @@ function add_more_field() {
     countre += 1
     html = ' <div class="row" id="roworder' + countre + '"><div class="col-sm-6 col-lg-6"><div class="form-group"><label class="form-label" for="name">Product Name</label><input type="text" name="productname ' + countre + '"class="form-control" /></div></div>\
     <div class="col-sm-6 col-lg-6"><div class="form-group"><label class="form-label" for="name">Quantity</label><input type="number" name="productqun ' + countre + '" class="form-control" id=""></div></div></div>'
-    var form = document.getElementById('orde')
+    var form = document.getElementById('ordeer-form')
     form.innerHTML += html
 }
 
@@ -93,5 +93,3 @@ $("#carousel").on("slide.bs.carousel", function (e) {
     $("[id=carousel-selector-" + id + "]").addClass("selected");
     $("#carousel-thumbs").carousel(thumbNum);
 });
-
-

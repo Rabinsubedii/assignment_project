@@ -75,6 +75,7 @@ class CategoryController extends Controller
         {
           File::delete($catimg);
         }
+        $category->products()->delete();
         $category->delete();
         return redirect()->back()->with('status', 'Category Delete Successfully');
     }

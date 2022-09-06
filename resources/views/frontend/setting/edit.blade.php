@@ -83,52 +83,52 @@
 
              <div class="form-group mt-3">
               <label for="phone">Phone Number</label>
-              <input type="number" name="phonenumber" value="{{$setting->phonenumber}}" class="form-control" id="phone" required>
+              <input type="number" name="phonenumber" value="{{$setting->phonenumber}}" class="form-control" id="phone" >
              </div>
 
                <div class="form-group mt-3">
               <label for="mapurl">Map URL</label>
-              <input type="text" name="mapurl" value="{{$setting->mapurl}}" class="form-control" id="mapurl" required>
+              <input type="text" name="mapurl" value="{{$setting->mapurl}}" class="form-control" id="mapurl" >
              </div>
 
               <div class="form-group mt-3">
               <label for="email">Email</label>
-              <input type="email" name="emailaddress" value="{{$setting->emailaddress}}" class="form-control" id="emailaddress" required>
+              <input type="email" name="emailaddress" value="{{$setting->emailaddress}}" class="form-control" id="emailaddress" >
              </div>
 
               <div class="form-group mt-3">
               <label for="address">Address</label>
-              <input type="text" name="address" value="{{$setting->address}}" class="form-control" id="address" required>
+              <input type="text" name="address" value="{{$setting->address}}" class="form-control" id="address" >
              </div>
 
               <div class="form-group mt-3">
               <label for="footercopyright">Copyright info</label>
-              <input type="text" name="footercopyright" value="{{$setting->footercopyright}}" class="form-control" id="footercopyright" required>
+              <input type="text" name="footercopyright" value="{{$setting->footercopyright}}" class="form-control" id="footercopyright" >
              </div>
 
               <div class="form-group mt-3">
               <label for="facebookurl">Facebook URL</label>
-              <input type="text" name="facebookurl"  value="{{$setting->facebookurl}}" class="form-control" id="facebookurl" required>
+              <input type="text" name="facebookurl"  value="{{$setting->facebookurl}}" class="form-control" id="facebookurl" >
              </div>
 
               <div class="form-group mt-3">
               <label for="youtubeurl">Youtube URL</label>
-              <input type="text" name="youtubeurl" value="{{$setting->youtubeurl}}" class="form-control" id="youtubeurl" required>
+              <input type="text" name="youtubeurl" value="{{$setting->youtubeurl}}" class="form-control" id="youtubeurl" >
              </div>
 
               <div class="form-group mt-3">
               <label for="emailurl">Email URL</label>
-              <input type="text" name="emailurl" value="{{$setting->emailurl}}" class="form-control" id="emailurl" required>
+              <input type="text" name="emailurl" value="{{$setting->emailurl}}" class="form-control" id="emailurl" >
              </div>
 
               <div class="form-group mt-3">
               <label for="insturl">Instagram URL</label>
-              <input type="text" name="insturl" value="{{$setting->insturl}}" class="form-control" id="insturl" required>
+              <input type="text" name="insturl" value="{{$setting->insturl}}" class="form-control" id="insturl" >
              </div>
 
               <div class="form-group mt-3">
               <label for="twitterurl">Twitter URL</label>
-              <input type="text" name="twitterurl" value="{{$setting->twitterurl}}" class="form-control" id="twitterurl" required>
+              <input type="text" name="twitterurl" value="{{$setting->twitterurl}}" class="form-control" id="twitterurl" >
              </div>
 
 
