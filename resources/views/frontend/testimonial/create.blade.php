@@ -21,9 +21,10 @@
                 <input type="text" class="form-control" name="title" required>
             </div>
 
+          
             <div class="form-group mt-3 ">
                 <label for="name">Description</label>
-                <textarea type="text" class="form-control" name="description" required> </textarea>
+                <textarea type="text" class="form-control" name="description" required></textarea>
             </div>
            
            

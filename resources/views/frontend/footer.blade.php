@@ -25,42 +25,45 @@
                             <h3>Quick Links</h3>
                             <div class="col item social">
                                 <ul class="list-unstyled list-inline social text-center">
-                                      @if(is_null($setting->setting))
+                                      @if(!!($setting->facebookurl))
                                     <li class="list-inline-item">
                                         <a href="{{$setting->facebookurl}}">
-                                            {{-- <i class="fa fa-facebook"></i> --}}
                                             <img src="{{asset('uploads/facebookicon/'.$setting->facebookicon)}}" height="30px" alt="facebook icon">
                                         </a>
                                     </li>
-
+                                    @endif
+                                     @if(!!($setting->twitterurl))
                                        <li class="list-inline-item">
                                         <a href="{{$setting->twitterurl}}">
-                                            {{-- <i class="fa fa-facebook"></i> --}}
                                             <img src="{{asset('uploads/twittericon/'.$setting->twittericon)}}" height="30px" alt="twitter  icon">
                                         </a>
                                     </li>
+                                     @endif
 
+                                      @if(!!($setting->insturl))
                                      <li class="list-inline-item">
                                         <a href="{{$setting->insturl}}">
-                                            {{-- <i class="fa fa-facebook"></i> --}}
                                             <img src="{{asset('uploads/instaicon/'.$setting->instaicon)}}" height="30px" alt="insta icon">
                                         </a>
                                     </li>
+                                      @endif
 
+                                     @if(!!($setting->youtubeurl))
                                      <li class="list-inline-item">
                                         <a href="{{$setting->youtubeurl}}">
-                                            {{-- <i class="fa fa-facebook"></i> --}}
                                             <img src="{{asset('uploads/youtubeicon/'.$setting->youtubeicon)}}" height="30px" alt="youtube icon">
                                         </a>
                                     </li>
+                                    @endif
 
+                                    @if(!!($setting->emailurl))
                                       <li class="list-inline-item">
                                         <a href="mailto:{{$setting->emailurl}}">
-                                            {{-- <i class="fa fa-facebook"></i> --}}
                                             <img src="{{asset('uploads/emailicon/'.$setting->emailicon)}}" height="30px" alt="emailicon icon">
                                         </a>
                                     </li>
- @endif
+                                    @endif
+                                   
 
                                 </ul>
                             </div>

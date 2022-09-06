@@ -23,7 +23,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>{{$item->name}}</td>
-                <td>{{$item->shortdescription}}</td>
+                <td id="productdescriptionadmin">{{$item->shortdescription}}</td>
                 <td>{{$item->price}}</td>
                  <td>
                     <img src="{{asset('uploads/product/'.$item->image)}}" height="70px" alt="Product Image">
@@ -36,7 +36,7 @@
                 
                 <td>
                     <a href="{{url('edit-product/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-product/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this product ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$item->id}})">Delete<i class="fa fa-times  text-danger"></i></a>
+                    <a href="{{url('delete-product/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this product ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$item->id}})">Delete</i></a>
 
                 </td>
             </tr>

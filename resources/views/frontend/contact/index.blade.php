@@ -25,7 +25,7 @@
                 <td>{{$item->message}}</td>
                 <td>
                     <a href="{{url('edit-contact/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-contact/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                     <a href="{{url('delete-contact/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this contact ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteContact({{$item->id}})">Delete</i></a>
                 </td>
             </tr>
             @endforeach

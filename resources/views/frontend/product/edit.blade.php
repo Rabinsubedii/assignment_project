@@ -32,7 +32,7 @@
 
                <div class="form-group">
                   <label for=""> Select Category</label>
-            <select name="category_id" class="form-control">
+              <select name="category_id" class="form-control">
                
                 @foreach ( $category as $category )
                 <option value="{{$category->id}}">{{$category->name}}</option>
@@ -48,7 +48,7 @@
              <label for="status">Status</label>
             <select name="status" class="form-control" id="">
                 <option value="0" name="status">Active</option>
-                 <option value="1" name="status">Deactive</option>
+                 <option value="1" name="status">Disable</option>
             </select>
 
            <label for="">Product Image</label>

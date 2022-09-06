@@ -234,15 +234,17 @@
                 <!-- side content -->
                 <div class="col-md-6" id="side-content">
                     @foreach ($setting as $item )
+                  
                         <div class="details-touch">
-                        <p><img src="img/location.png" alt="">{{$item->address}}</p>
-                        <p><img src="img/cal.png" alt="">{{$item->phonenumber}}</p>
-                        <p><img src="img/mail.png" alt="">{{$item->emailaddress}}</p>
+                        <p><img src="{{asset('uploads/addressicon/'.$item->addressicon)}}" alt="">{{$item->address}}</p>
+                        <p><img src="{{asset('uploads/phoneicon/'.$item->phoneicon)}}" alt="">{{$item->phonenumber}}</p>
+                        <p><img src="{{asset('uploads/emailicon/'.$item->emailicon)}}" alt="">{{$item->emailaddress}}</p>
                         <!-- map -->
                         <iframe
                             src="{{$item->mapurl}}"
                             frameborder="0" style="border:0;" allowfullscreen="" class="map"></iframe>
                     </div>
+                 
                     @endforeach
 
                 </div>

@@ -10,3 +10,7 @@
   content: counter(serial-number);
   /* Display the counter */
 }
+#productdescriptionadmin{
+width: 20%;
+text-align: justify;
+}

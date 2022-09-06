@@ -28,7 +28,8 @@
                   <td>{{$item->status =='0'?'Enable':'Disable'}}</td>
                 <td>
                     <a href="{{url('edit-category/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                  <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this category ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$item->id}})">Delete</i></a>
+
                 </td>
             </tr>
             @endforeach

@@ -28,17 +28,17 @@
 
                <div class="form-group mt-3 ">
                 <label for="name">Short Description</label>
-                <textarea type="text" class="form-control" name="shortdescription" required> </textarea>
+                <textarea type="text" class="form-control" name="shortdescription" required></textarea>
             </div>
 
             <div class="form-group mt-3 ">
                 <label for="name">Description</label>
-                <textarea type="text" class="form-control" name="description" required> </textarea>
+                 <textarea type="text" class="form-control" name="description" required></textarea>
             </div>
 
             <div class="form-group mt-3 ">
                 <label for="price">Price</label>
-                <input type="number" class="form-control"  name="price" required > 
+                <input type="number" class="form-control"  name="price" required  > 
             </div>
 
              <label for="status">Status</label>

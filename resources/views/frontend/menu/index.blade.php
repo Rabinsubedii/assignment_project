@@ -23,7 +23,7 @@
              @include('frontend.topnav')
 
             <!-- Navbar -->
-            @include('frontend.navbar')
+            @include('frontend.menunav')
 
             <!-- menu tab -->
 

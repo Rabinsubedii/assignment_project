@@ -29,7 +29,7 @@
                 
                 <td>
                     <a href="{{url('edit-testimonial/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-testimonial/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                   <a href="{{url('delete-testimonial/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this Testimonial ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteTestimonial({{$item->id}})">Delete</i></a>
                 </td>
             </tr>
             @endforeach

@@ -27,7 +27,7 @@
                 <td>{{$item->product->name}}</td>
                 <td>
                     <a href="{{url('edit-order/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-order/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                     <a href="{{url('delete-order/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this Order ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteOrder({{$item->id}})">Delete</i></a>
                 </td>
             </tr>
             @endforeach

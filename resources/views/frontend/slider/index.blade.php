@@ -28,7 +28,7 @@
                      <td>{{$item->status =='0'?'Active':'Deactive'}}</td>
                 <td>
                     <a href="{{url('edit-slider/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-slider/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="{{url('delete-slider/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this Slider ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlider({{$item->id}})">Delete</i></a>
                 </td>
             </tr>
             @endforeach

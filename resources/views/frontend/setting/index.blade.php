@@ -40,7 +40,7 @@
                 
                 <td>
                     <a href="{{url('edit-setting/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('delete-setting/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                     <a href="{{url('delete-setting/'.$item->id)}}" class="btn btn-info btn-sm" onclick="confirm('Are you sure ,You want to delete this Settings ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSetting({{$item->id}})">Delete</i></a>
                 </td>
             </tr>
             @endforeach
