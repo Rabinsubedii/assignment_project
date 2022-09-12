@@ -5,6 +5,7 @@ use App\Models\Order;
 use App\Models\Setting;
 use App\Models\Product;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -40,6 +41,7 @@ class OrderController extends Controller
         $data->save();
        }
          return redirect()->back()->with('status', 'Order Successfully');
+        // return view('frontend.order.details',$this->data);
     }
 
     public function details()

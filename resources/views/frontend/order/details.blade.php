@@ -1,3 +1,4 @@
-  @if(session ('email'))
-    <h4 class="alert alert-success">{{session ('email')}}</h4>
+  @if(session ('name'))
+<p>{{Session::get('name','default value')}}</p>
+
     @endif
