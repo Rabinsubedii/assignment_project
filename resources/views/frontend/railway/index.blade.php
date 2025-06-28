@@ -121,14 +121,11 @@
     <div class="tab-content mt-4" id="railwayTabContent">
       <!-- JR Railways PDF -->
       <div class="tab-pane fade show active railway-pdf-container" id="jr" role="tabpanel" aria-labelledby="jr-tab">
-        <!-- <iframe
+        <iframe
           src="https://www.westjr.co.jp/global/en/timetable/pdf/map_kyoto.pdf"
           allowfullscreen
           loading="lazy"
-          title="JR Railways Route PDF"></iframe> -->
-
-          <p><a href="{{ asset('uploads/pdf/jr_kyoto.pdf') }}" target="_blank">Open PDF in new tab</a></p>
-
+          title="JR Railways Route PDF"></iframe>
       </div>
 
       <!-- Hankyu Railways PDF -->
