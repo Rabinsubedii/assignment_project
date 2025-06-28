@@ -93,3 +93,6 @@ $("#carousel").on("slide.bs.carousel", function (e) {
     $("[id=carousel-selector-" + id + "]").addClass("selected");
     $("#carousel-thumbs").carousel(thumbNum);
 });
+
+
+

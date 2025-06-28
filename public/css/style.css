@@ -19,6 +19,195 @@ body {
 }
 
 
+
+/* second section */
+
+
+.special-item-section {
+  background-color: #f8f9fa;
+}
+
+#slider_div .carousel-inner {
+  max-height: 300px;
+}
+
+
+.special-img {
+  object-fit: cover;
+  height: 300px;  /* smaller height */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.special-img:hover {
+  transform: scale(1.05);
+}
+
+#qts_div h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #555;
+  background: #fff;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 768px) {
+  #slider_div .carousel-inner,
+  .special-img {
+    height: 200px;  /* smaller for mobile */
+  }
+
+
+  #qts_div h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+/* Full width carousel container */
+.custom-carousel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  height: 500px;  /* adjust height as needed */
+}
+
+/* Carousel inner fills container */
+.custom-carousel .carousel-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Carousel items fill container */
+.custom-carousel .carousel-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Images and videos fill container */
+.custom-carousel .slider-image,
+.custom-carousel .slider-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+/* Bigger, centered controls */
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  width: 45px;
+  height: 45px;
+}
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive height on small screens */
+@media (max-width: 768px) {
+  .custom-carousel {
+    height: 300px;
+  }
+}
+
+section{
+    margin-top: 90px;
+}
+
+
+/* home page popular place */
+
+.popular-places-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    border-radius: 12px;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    position: relative;
+}
+
+.place-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.view-details-btn {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+
+.carousel-indicators.tabs li figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-indicators.tabs li figure img.img-fluid-custo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+/* Highlight active thumbnail */
+.carousel-indicators.tabs li.active figure,
+.carousel-indicators.tabs li:hover figure {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+
+
+
 /* topnavbar */
 
 .top-nav {
@@ -183,7 +372,7 @@ body {
 
 .section-header p {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 300;
     margin-left: 50px;
 }
 
@@ -231,9 +420,7 @@ body {
 
 /* customer feedback css */
 
-.testimonial {
-    padding: 100px 0;
-}
+
 
 .testimonial .row .tabs {
     all: unset;
@@ -260,8 +447,10 @@ body {
 
 .img-fluid-custo {
     border-radius: 50%;
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 200px !important;
+    object-fit: fill;
+    background-position: center;
 }
 
 

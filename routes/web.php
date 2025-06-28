@@ -13,7 +13,9 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestimonialController; 
 use App\Http\Controllers\SliderController; 
 use App\Http\Controllers\TodayspecialController; 
+use App\Http\Controllers\EventController; 
 use App\Http\Controllers\OrderController; 
+use App\Http\Controllers\RailwayController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +38,20 @@ use App\Http\Controllers\OrderController;
    Route::put('updatecategory/{id}',[CategoryController::class,'update']);
    Route::get('delete-category/{id}',[CategoryController::class,'destroy']);
 
+  //  event
+  Route::get('events',[EventController::class,'index']);
+  Route::get('add-event',[EventController::class,'create']);
+   Route::post('add-event',[EventController::class,'store']);
+   Route::get('edit-event/{id}',[EventController::class,'edit']);
+   Route::put('updateevent/{id}',[EventController::class,'update']);
+   Route::get('delete-event/{id}',[EventController::class,'destroy']);
+   Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
+   
+ 
+
+
     // Product
+  Route::get('/place/{slug}', [ProductController::class, 'show']);
    Route::get('products',[ProductController::class,'index']);
    Route::get('add-product',[ProductController::class,'create']);
    Route::post('add-product',[ProductController::class,'store']);
@@ -93,7 +108,17 @@ use App\Http\Controllers\OrderController;
     Route::get('delete-order/{id}',[OrderController::class,'destroy']);
     Route::get('details',[OrderController::class,'details']);
     //menu
-    Route::get('menu',[ProductController::class,'menu']);
+
+// ... (other use statements at the top)
+
+Route::get('place', [App\Http\Controllers\ProductController::class, 'menu'])->name('menu.index'); // <--- ADDED ->name('menu.index')
+
+Route::get('/railway-route', [RailwayController::class, 'index'])->name('railway.route');
+
+
+Route::get('products/{product:slug}', [App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
+
+// ... (rest of your routes)
 
    
    Route::middleware(['auth'])->group(function(){

@@ -21,9 +21,16 @@
             <tr>
                 <td>&nbsp;</td>
                   <td>{{$item->title}}</td>
-                   <td>
-                    <img src="{{asset('uploads/slider/'.$item->image)}}" height="70px" alt="heading logo">
-                </td>
+            <td>
+                @if(Str::endsWith($item->image, ['mp4', 'webm', 'ogg']))
+                    <video width="120" height="70" muted preload="metadata" poster="{{ asset('uploads/slider/video-placeholder.jpg') }}">
+                        <source src="{{ asset('uploads/slider/' . $item->image) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                @else
+                    <img src="{{ asset('uploads/slider/' . $item->image) }}" height="70" alt="slider media">
+                @endif
+            </td>
                      <td>{{$item->description}}</td>
                      <td>{{$item->status =='0'?'Active':'Deactive'}}</td>
                 <td>

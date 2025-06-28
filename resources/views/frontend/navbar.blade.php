@@ -16,16 +16,20 @@
                             <a class="nav-link"href="{{url('/')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="{{url('/place')}}">Explore Place</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('menu')}}">Menu</a>
+                            <a class="nav-link" href="{{url('place')}}">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('railway-route')}}">Railway Routes</a>
+
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
+                    <!-- <form class="form-inline my-2 my-lg-0">
                         <a href="{{url('order')}}" class="btn  btn-order-now my-2 my-sm-0"> Order Now</a>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </nav>

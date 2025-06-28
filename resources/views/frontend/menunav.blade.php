@@ -18,12 +18,20 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('menu')}}">Menu</a>
+                            <a class="nav-link" href="{{url('place')}}">Explore Places
+                            </a>
+                        </li>
+
+                         <li class="nav-item">
+                            <a class="nav-link" href="{{url('place')}}">Events
+                            </a>
+                        </li>
+
+                         <li class="nav-item">
+                            <a class="nav-link" href="{{url('railway-route')}}">Railway Routes</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <a href="{{url('order')}}" class="btn  btn-order-now my-2 my-sm-0"> Order Now</a>
-                    </form>
+                   
                 </div>
             </div>
         </nav>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content">
-    <a href="{{url('add-todayspecial')}}" class="btn btn-primary float-right">Add Today Special</a>
+    <a href="{{url('add-todayspecial')}}" class="btn btn-primary float-right">Add About Kyoto</a>
     <h3>Slider Setting </h3>
 
     <table class="table table-bordered css-serial">

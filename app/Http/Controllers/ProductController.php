@@ -60,6 +60,13 @@ class ProductController extends Controller
         ]));
     }
 
+    public function show(Product $product)
+    {
+        $setting = Setting::all();
+        return view('frontend.menu.product_details', compact('product', 'setting')); // <--- CHANGED PATH HERE
+    }
+
+
     // public function menus($id){
     //   $setting = Settings::all();  
     //   $category = Category::all();

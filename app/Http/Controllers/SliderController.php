@@ -21,22 +21,37 @@ class SliderController extends Controller
 
     public function store(Request $request)
     {
-       $slider = new Slider;
-         if($request->hasfile('image'))
-        {
+        // Validate the input
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'required|in:0,1',
+            'image' => 'nullable|file|mimes:jpeg,jpg,png,mp4,webm,ogg|max:102400', // 100MB max
+        ]);
+
+        $slider = new Slider;
+
+        // Handle file upload
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
-            $file->move('uploads/slider/',$filename);
-            $slider->image=$filename;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+
+            // Move the file to public/uploads/slider
+            $file->move(public_path('uploads/slider/'), $filename);
+
+            // Store filename in the image field
+            $slider->image = $filename;
         }
-         
-        $slider ->title = $request->input('title');
-        $slider ->description = $request->input('description');
-        $slider ->status = $request->input('status');
+
+        // Set other fields
+        $slider->title = $request->input('title');
+        $slider->description = $request->input('description');
+        $slider->status = $request->input('status');
+
         $slider->save();
+
         return redirect()->back()->with('status', 'Slider Added');
-        
     }
 
      public function edit ($id)
