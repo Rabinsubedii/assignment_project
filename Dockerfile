@@ -1,6 +1,7 @@
+# Use PHP 8.2 as base image
 FROM php:8.2-cli
 
-# Install required system packages
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     libpng-dev libjpeg-dev libfreetype6-dev zip unzip git curl \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -12,18 +13,18 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy app files
+# Copy Laravel project files
 COPY . .
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Give permissions to Laravel storage & cache
+# Set correct permissions for Laravel
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-# Default port
-ENV PORT=8000
+# Expose the default Laravel port
+EXPOSE 8000
 
-# Run Laravel built-in server using Railway's assigned port
-CMD sh -c 'php artisan serve --host=0.0.0.0 --port=${PORT:-8000}'
+# Command to start Laravel app, with safe port fallback
+CMD sh -c 'PORT_NUMBER=${PORT:-8000}; echo "Starting Laravel on port $PORT_NUMBER"; php artisan serve --host=0.0.0.0 --port=$PORT_NUMBER'
