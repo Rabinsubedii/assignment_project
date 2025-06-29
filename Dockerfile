@@ -1,5 +1,4 @@
-# Use official PHP 8.2 FPM image
-FROM php:8.2-fpm
+FROM php:8.2-cli
 
 # Install system dependencies and PHP extensions needed for Laravel
 RUN apt-get update && apt-get install -y \
@@ -19,8 +18,16 @@ COPY . .
 # Install PHP dependencies using Composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose port 9000 (php-fpm default)
-EXPOSE 9000
+# Fix permissions for Laravel storage and cache
+RUN chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
 
-# Start php-fpm server
-CMD ["php-fpm"]
+# Create start script to cast $PORT as integer
+RUN echo '#!/bin/sh\nphp artisan serve --host=0.0.0.0 --port=$(($PORT))' > /start.sh \
+    && chmod +x /start.sh
+
+# Expose port (this is optional, mostly for documentation)
+EXPOSE 8000
+
+# Run the start script
+CMD ["/start.sh"]
