@@ -8,6 +8,7 @@
     <table class="table table-bordered css-serial">
         <thead>
             <tr>
+                <!-- table -->
                 <th>S.N</th>
                 <th>Event Name</th>
                 <th>Description</th>
