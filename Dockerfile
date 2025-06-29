@@ -1,7 +1,6 @@
-# Use official PHP 8.2 CLI image as base
 FROM php:8.2-cli
 
-# Install system dependencies and required PHP extensions
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     libpng-dev libjpeg-dev libfreetype6-dev zip unzip git curl \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -13,22 +12,22 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy application files
+# Copy project files
 COPY . .
 
-# Copy and make start script executable
+# Copy start.sh and make it executable
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 
-# Install Laravel dependencies
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Set proper permissions for Laravel storage and cache
+# Set correct permissions
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-# Expose Laravel's default development port
 EXPOSE 8000
 
-# Run Laravel using the custom start script
+# Always use start.sh
 CMD ["/usr/local/bin/start.sh"]
+
