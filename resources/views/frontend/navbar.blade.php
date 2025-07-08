@@ -20,12 +20,16 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('event')}}">Events</a>
+                            <a class="nav-link" href="{{url('place')}}">Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('railway-route')}}">Railway Routes</a>
-
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('members')}}">Members</a>
+                        </li>
+
                     </ul>
                     <!-- <form class="form-inline my-2 my-lg-0">
                         <a href="{{url('order')}}" class="btn  btn-order-now my-2 my-sm-0"> Order Now</a>

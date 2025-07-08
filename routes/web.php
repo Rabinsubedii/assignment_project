@@ -16,6 +16,7 @@ use App\Http\Controllers\TodayspecialController;
 use App\Http\Controllers\EventController; 
 use App\Http\Controllers\OrderController; 
 use App\Http\Controllers\RailwayController; 
+use App\Http\Controllers\MemberContoller; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,6 +116,8 @@ use App\Http\Controllers\RailwayController;
 Route::get('place', [App\Http\Controllers\ProductController::class, 'menu'])->name('menu.index'); // <--- ADDED ->name('menu.index')
 
 Route::get('/railway-route', [RailwayController::class, 'index'])->name('railway.route');
+
+Route::get('members',[MemberContoller::class,'index']);
 
 
 Route::get('products/{product:slug}', [App\Http\Controllers\ProductController::class, 'show'])->name('product.show');

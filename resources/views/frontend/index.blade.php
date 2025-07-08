@@ -25,6 +25,105 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
+
+<style>
+    <style>
+    /* Event card style */
+    .place-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    .place-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .place-card .card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .view-details-btn {
+        background-color: #0056b3;
+        color: white;
+        font-weight: 600;
+        border-radius: 30px;
+        padding: 8px 20px;
+        transition: all 0.3s ease;
+        font-size: 14px;
+    }
+
+    .view-details-btn:hover {
+        background-color: #007bff;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    }
+
+    /* Modal style */
+    .modal-content {
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .modal-title {
+        font-weight: 600;
+        font-size: 20px;
+        color: #333;
+    }
+
+    .modal-body p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .modal-body img {
+        border-radius: 10px;
+        object-fit: cover;
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .modal-body .col-md-4 {
+        padding-right: 15px;
+    }
+
+    .modal-body .col-md-8 {
+        padding-left: 15px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .modal-body .col-md-4,
+        .modal-body .col-md-8 {
+            padding: 0;
+        }
+
+        .modal-body img {
+            max-height: 180px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .section-title {
+        font-weight: 700;
+        font-size: 26px;
+        color: #212529;
+        margin-bottom: 20px;
+    }
+</style>
+
+</style>
+
 <body>
     <!-- Top navbar -->
     @include('frontend.topnav')
@@ -234,13 +333,11 @@
 
 
     <!-- explore lates event place  -->
-    <section>
-        <div class=" mt-5 popular-places-section">
-          
-            
-            <div class="container mt-5">
-                  <h2 class="section-title text-left mb-4">Latest Events</h2>
-                <div class="row">
+     <section>
+    <div class="mt-5 popular-places-section">
+        <div class="container mt-5">
+            <h2 class="section-title text-left mb-4">Latest Events</h2>
+            <div class="row">
                 @foreach($event as $item)
                     <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
                         <div class="card place-card h-100 shadow-sm border-0">
@@ -251,17 +348,49 @@
 
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title font-weight-bold">{{ $item->title }}</h5>
-                                <a href="{{ route('product.show', $item->slug) }}" class="btn view-details-btn mt-auto">
+                                <button type="button" class="btn view-details-btn mt-auto"
+                                    data-toggle="modal" data-target="#eventModal{{ $item->id }}">
                                     View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="eventModal{{ $item->id }}" tabindex="-1" role="dialog"
+                        aria-labelledby="eventModalLabel{{ $item->id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="eventModalLabel{{ $item->id }}">{{ $item->title }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3 mb-md-0">
+                                            <img src="{{ asset('uploads/event/' . $item->image) }}"
+                                                alt="{{ $item->title }}" class="img-fluid rounded shadow-sm" style="max-height: 200px; object-fit: cover;">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p><strong>Date:</strong> {{ $item->date }}</p>
+                                            <p><strong>Short Description:</strong> {{ \Illuminate\Support\Str::limit($item->description, 100) }}</p>
+                                            <hr />
+                                            <p>{{ $item->description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- footer -->
     @include('frontend.footer')
 

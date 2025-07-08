@@ -30,6 +30,10 @@
                          <li class="nav-item">
                             <a class="nav-link" href="{{url('railway-route')}}">Railway Routes</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('members')}}">Members</a>
+                        </li>
                     </ul>
                    
                 </div>
