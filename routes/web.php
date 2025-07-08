@@ -40,6 +40,7 @@ use App\Http\Controllers\RailwayController;
 
   //  event
   Route::get('events',[EventController::class,'index']);
+  Route::get('event',[EventController::class,'eventhome']);
   Route::get('add-event',[EventController::class,'create']);
    Route::post('add-event',[EventController::class,'store']);
    Route::get('edit-event/{id}',[EventController::class,'edit']);

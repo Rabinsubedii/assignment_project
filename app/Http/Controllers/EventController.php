@@ -16,6 +16,18 @@ class EventController extends Controller
        return view('frontend.event.index',compact('event','setting'));
     }
 
+
+    public function eventhome()
+    {
+       $setting = Setting::all();
+       $event = Event::all();
+       return view('frontend.events.eventhome',compact('event','setting'));
+    }
+
+
+
+
+
      public function create()
     {
         return view('frontend.event.create');
